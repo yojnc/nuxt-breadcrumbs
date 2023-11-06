@@ -1,5 +1,6 @@
 import { useBreadcrumbs } from "./useBreadcrumbs.mjs";
 import { useItems } from "./useItems.mjs";
+import { useRoute } from "nuxt/app";
 const breads = useBreadcrumbs();
 export const defineBreadcrumbs = (ctx, name) => {
   if (!name) {

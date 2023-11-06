@@ -56,7 +56,7 @@ Then register breadcrumbs
     const {$registerBreadcrumbs} = nuxtApp
     
     // Register single breadcrumb
-    $registerBreadcrumbs({
+    $registerBreadcrumb({
         // route name. Can find in useRoute().name
         name: 'index',
         // Parent breadcrumb name, can be null|string

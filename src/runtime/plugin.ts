@@ -1,6 +1,7 @@
-import type {ItemType} from './types/ItemType'
+import {defineNuxtPlugin, addRouteMiddleware} from 'nuxt/app'
 import {useItems} from './composables/useItems'
 import {useBreadcrumbs} from './composables/useBreadcrumbs'
+import type {ItemType} from './types/ItemType'
 
 export default defineNuxtPlugin(() => {
     addRouteMiddleware('global-test', (to, from) => {
@@ -23,10 +24,14 @@ export default defineNuxtPlugin(() => {
         registerItem(item, null)
     }
 
-    const registerBreadcrumbs = (items: Array<ItemType>): void => {
-        items.forEach(item => {
-            registerItem(item, null)
-        })
+    const registerBreadcrumbs = (items: Array<ItemType>|ItemType): void => {
+        if (Array.isArray(items)) {
+            items.forEach(item => {
+                registerItem(item, null)
+            })
+        } else {
+            throw new Error('Passed breadcrumbs must be an array!')
+        }
     }
 
     return {

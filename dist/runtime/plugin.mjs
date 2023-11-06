@@ -1,3 +1,4 @@
+import { defineNuxtPlugin, addRouteMiddleware } from "nuxt/app";
 import { useItems } from "./composables/useItems.mjs";
 import { useBreadcrumbs } from "./composables/useBreadcrumbs.mjs";
 export default defineNuxtPlugin(() => {
@@ -18,9 +19,13 @@ export default defineNuxtPlugin(() => {
     registerItem(item, null);
   };
   const registerBreadcrumbs = (items) => {
-    items.forEach((item) => {
-      registerItem(item, null);
-    });
+    if (Array.isArray(items)) {
+      items.forEach((item) => {
+        registerItem(item, null);
+      });
+    } else {
+      throw new Error("Passed breadcrumbs must be an array!");
+    }
   };
   return {
     provide: {

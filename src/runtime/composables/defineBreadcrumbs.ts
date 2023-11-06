@@ -1,5 +1,6 @@
 import {useBreadcrumbs} from './useBreadcrumbs'
 import {useItems} from './useItems'
+import {useRoute} from 'nuxt/app'
 import type {ItemType} from '../types/ItemType'
 import type {BreadcrumbType} from '../types/BreadcrumbType'
 

@@ -1,4 +1,4 @@
-import {addImports, addPlugin, createResolver, defineNuxtModule, addRouteMiddleware} from '@nuxt/kit'
+import {addImports, addPlugin, createResolver, defineNuxtModule} from '@nuxt/kit'
 import {fileURLToPath} from 'node:url'
 
 export interface ModuleOptions {
